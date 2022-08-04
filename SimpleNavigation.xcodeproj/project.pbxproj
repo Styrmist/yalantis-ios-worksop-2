@@ -39,6 +39,7 @@
 		55C57BD3278D7E63007D7905 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C57BD2278D7E63007D7905 /* AccountViewModel.swift */; };
 		55C57BD6278E79C5007D7905 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55C57BD8278E79C5007D7905 /* Localizable.strings */; };
 		55C57BDD278EC120007D7905 /* LazyNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C57BDC278EC120007D7905 /* LazyNavigationLink.swift */; };
+		59F8D8B9289BB83D00413E8D /* DeeplinkHandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8D8B8289BB83D00413E8D /* DeeplinkHandable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		55C57BD2278D7E63007D7905 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		55C57BD7278E79C5007D7905 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55C57BDC278EC120007D7905 /* LazyNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigationLink.swift; sourceTree = "<group>"; };
+		59F8D8B8289BB83D00413E8D /* DeeplinkHandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,11 +284,20 @@
 		55C57BEA27954F62007D7905 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				59F8D8B7289BA5EA00413E8D /* Deeplink */,
 				55C57BC1278D2460007D7905 /* Navigation */,
 				55C57BBC278D1E36007D7905 /* Screens */,
 				55C57BBD278D1E6E007D7905 /* SharedViews */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		59F8D8B7289BA5EA00413E8D /* Deeplink */ = {
+			isa = PBXGroup;
+			children = (
+				59F8D8B8289BB83D00413E8D /* DeeplinkHandable.swift */,
+			);
+			path = Deeplink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				55C57B6627855CD6007D7905 /* AppDelegate.swift in Sources */,
 				55C57BC9278D63E1007D7905 /* AccountEditViewModel.swift in Sources */,
 				55C57B9A2785711A007D7905 /* ItemCoordinatorView.swift in Sources */,
+				59F8D8B9289BB83D00413E8D /* DeeplinkHandable.swift in Sources */,
 				55C57BDD278EC120007D7905 /* LazyNavigationLink.swift in Sources */,
 				55C57BA52785819D007D7905 /* FeedItemView.swift in Sources */,
 				55C57BB327858E4B007D7905 /* FeedCoordinator.swift in Sources */,
