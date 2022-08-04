@@ -3,15 +3,16 @@ import SwiftUI
 struct AppCoordinatorView: View {
 
     @ObservedObject var coordinator: AppCoordinator
-    
+
     var body: some View {
-        TabView {
+        TabView(selection: $coordinator.selectedTabItem) {
             NavigationView {
                 FeedCoordinatorView(coordinator: coordinator.viewModel(for: .homeFeedCoordinator))
             }
             .tabItem {
                 Label("app.tab.feed", systemImage: "house")
             }
+            .tag(1)
             .navigationViewStyle(.stack)
 
             NavigationView {
@@ -20,6 +21,7 @@ struct AppCoordinatorView: View {
             .tabItem {
                 Label("app.tab.music", systemImage: "music.note.list")
             }
+            .tag(2)
             .navigationViewStyle(.stack)
 
             NavigationView {
@@ -28,6 +30,7 @@ struct AppCoordinatorView: View {
             .tabItem {
                 Label("app.tab.account", systemImage: "person")
             }
+            .tag(3)
             .navigationViewStyle(.stack)
         }
     }

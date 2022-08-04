@@ -7,7 +7,7 @@ enum FeedCoordinatorNavigation {
 
 }
 
-final class FeedCoordinator: Coordinator {
+final class FeedCoordinator: Coordinator, DeeplinkHandable {
 
     @Published var navigationStack: [(FeedCoordinatorNavigation, Any)] = []
     
@@ -30,6 +30,10 @@ final class FeedCoordinator: Coordinator {
         }
 
         pushToNavigationStack(.item, viewModel: coordinator)
+    }
+
+    func handleURL(_ url: URL) -> Bool {
+        false
     }
     
 }

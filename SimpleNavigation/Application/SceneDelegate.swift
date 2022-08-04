@@ -4,14 +4,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    private var coordinator: DeeplinkHandable? //
+
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         window = (scene as? UIWindowScene).map(UIWindow.init(windowScene:))
-        window?.rootViewController = UIHostingController(rootView: AppCoordinatorView(coordinator: AppCoordinator()))
+        let coordinator = AppCoordinator()
+        window?.rootViewController = UIHostingController(rootView: AppCoordinatorView(coordinator: coordinator))
         window?.makeKeyAndVisible()
+
+        self.coordinator = coordinator
     }
 
 //    xcrun simctl openurl booted "deeplink://itworks"
@@ -21,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         print(firstUrl.absoluteString)
+        coordinator?.handleURL(firstUrl)
     }
 
 }

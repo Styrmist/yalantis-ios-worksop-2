@@ -1,15 +1,15 @@
 import Foundation
 
-enum AccountCoordinatorNavigation {
+enum AccountCoordinatorNavigation: String {
 
     case account
-    case accountEdit
-    case accountConfirm
-    case itemCoordinator
+    case accountEdit = "edit"
+    case accountConfirm = "confirm"
+    case itemCoordinator = "item"
 
 }
 
-final class AccountCoordinator: Coordinator {
+final class AccountCoordinator: Coordinator, DeeplinkHandable {
 
     @Published var navigationStack: [(AccountCoordinatorNavigation, Any)] = []
     
@@ -66,6 +66,35 @@ final class AccountCoordinator: Coordinator {
         }
 
         pushToNavigationStack(.itemCoordinator, viewModel: coordinator)
+    }
+
+    func handleURL(_ url: URL) -> Bool {
+        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return false }
+
+        let pathComponents = urlComponents.path.components(separatedBy: "/")
+
+        guard let currentPathComponent = pathComponents.last,
+              let coordinator = AccountCoordinatorNavigation(rawValue: currentPathComponent) else { return false }
+
+        switch coordinator {
+        case .accountEdit:
+            pushAccountEditView()
+
+            return true
+
+        case .itemCoordinator:
+            let queryItems = urlComponents.queryItems
+            if let itemId = queryItems?.first(where: { $0.name == "itemId" })?.value {
+                pushItemCoordinator(itemId)
+
+                return true
+            } else {
+                return false
+            }
+
+        default:
+            return false
+        }
     }
     
 }
