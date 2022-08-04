@@ -17,5 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> UISceneConfiguration {
         UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+
+//    xcrun simctl openurl booted "deeplink://itworks"
+//    func application(
+//        _ app: UIApplication,
+//        open url: URL,
+//        options: [UIApplication.OpenURLOptionsKey: Any]
+//    ) -> Bool {
+//        print(url.absolueString)
+//        return true
+//    }
     
 }
