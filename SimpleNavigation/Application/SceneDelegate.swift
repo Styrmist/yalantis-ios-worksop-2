@@ -29,4 +29,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator?.handleURL(firstUrl)
     }
 
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let url = connectionOptions.userActivities.first?.webpageURL {
+            coordinator?.handleURL(url)
+        }
+    }
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let url = userActivity.webpageURL {
+            coordinator?.handleURL(url)
+        }
+    }
+
 }
