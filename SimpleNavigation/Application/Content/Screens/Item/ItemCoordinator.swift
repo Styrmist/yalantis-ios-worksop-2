@@ -48,7 +48,9 @@ final class ItemCoordinator: Coordinator, DeeplinkHandable {
 
         switch coordinator {
         case .details:
-            pushItemDetails()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.pushItemDetails()
+            }
 
             return true
 
